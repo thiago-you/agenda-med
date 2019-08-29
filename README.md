@@ -1,7 +1,6 @@
 <p align="center">
     <h1 align="center">Agenda Med</h1>
     <h3 align="center">Agendamento de Consultas médicas</h3>
-    <br>
 </p>
 
 Projeto básico de agendamento de consultas médicas. Utilizando PHP com [Yii 2 Framework](http://www.yiiframework.com/), Jquery e Bootstrap.
