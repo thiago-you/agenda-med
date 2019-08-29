@@ -6,11 +6,12 @@
 
 Projeto básico de agendamento de consultas médicas. Utilizando PHP com [Yii 2 Framework](http://www.yiiframework.com/), Jquery e Bootstrap.
 
-REQUIREMENTS
-------------
-PHP >= 7.0
-COMPOSER >= 1.9.0
-GIT
+REQUISITOS
+-------------------
+
+        PHP >= 7.0
+        COMPOSER >= 1.9.0
+        GIT
 
 INSTALAÇÃO
 ------------
