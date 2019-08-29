@@ -38,7 +38,7 @@ composer install
 composer global show fxp/composer-asset-plugin
 ~~~
 
-Se for inferior há `1.4.0` será necessário instalar/atualizar o plugin e reinstalar as dependências:
+Se não estiver instalado ou for inferior há `1.4.0` será necessário instalar/atualizar o plugin e reinstalar as dependências:
 
 ~~~
 composer global require "fxp/composer-asset-plugin:>=1.4.0"
