@@ -1,119 +1,78 @@
 <p align="center">
-    <h1 align="center">Agenda Méd</h1>
+    <h1 align="center">Agenda Med</h1>
     <h3 align="center">Agendamento de Consultas médicas</h3>
     <br>
 </p>
 
 Projeto básico de agendamento de consultas médicas. Utilizando PHP com [Yii 2 Framework](http://www.yiiframework.com/), Jquery e Bootstrap.
 
-Estrutura
--------------------
-
-      assets/             contains assets definition
-      commands/           contains console commands (controllers)
-      config/             contains application configurations
-      controllers/        contains Web controller classes
-      database/           contains database files
-      mail/               contains view files for e-mails
-      models/             contains model classes
-      runtime/            contains files generated during runtime
-      tests/              contains various tests for the basic application
-      vendor/             contains dependent 3rd-party packages
-      views/              contains view files for the Web application
-      web/                contains the entry script and Web resources
-
-
-
 REQUIREMENTS
 ------------
-
 PHP >= 7.0
+COMPOSER >= 1.9.0
+GIT
 
-
-INSTALLATION
+INSTALAÇÃO
 ------------
 
-### Install via Composer
-
-If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
-
-You can then install this project template using the following command:
-
+### Clonando o projeto
 ~~~
-composer create-project --prefer-dist yiisoft/yii2-app-basic basic
+cd /var/www/html
+sudo git clone https://github.com/thiagoyou/agenda-med.git agenda-med
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
-directly under the Web root.
+### Instalando as depêndencias
+
+Se você ainda não tiver o composer [Composer](http://getcomposer.org/), você pode instala-lo seguindo as etapas em [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
 ~~~
-http://localhost/basic/web/
+cd /var/www/html/agenda-med
+composer install
 ~~~
 
-### Install from an Archive File
-
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
-
-Set cookie validation key in `config/web.php` file to some random secret string:
-
-```php
-'request' => [
-    // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-    'cookieValidationKey' => '<secret random string goes here>',
-],
-```
-
-You can then access the application through the following URL:
+**NOTA:**
+- Se houver problemas de instalção das dependências do composer, verifique a versão do plugin `fxp/composer-asset-plugin`:
 
 ~~~
-http://localhost/basic/web/
+composer global show fxp/composer-asset-plugin
 ~~~
 
+Se for inferior há `1.4.0` será necessário instalar/atualizar o plugin e reinstalar as dependências:
 
-### Install with Docker
+~~~
+composer global require "fxp/composer-asset-plugin:>=1.4.0"
+composer --prefer-dist install
+~~~
 
-Update your vendor packages
+### Acessando o Sistema
 
-    docker-compose run --rm php composer update --prefer-dist
-    
-Run the installation triggers (creating cookie validation code)
+Geralmente, o sistema pode ser acesso pelos seguintes caminhos:
 
-    docker-compose run --rm php composer install    
-    
-Start the container
+~~~
+- localhost/agenda-med/web
+- http://localhost/agenda-med/
+~~~
 
-    docker-compose up -d
-    
-You can then access the application through the following URL:
+**NOTA:** 
+- O caminho é totalmente dependente da sua instalação e configuração.
 
-    http://127.0.0.1:8000
-
-**NOTES:** 
-- Minimum required Docker engine version `17.04` for development (see [Performance tuning for volume mounts](https://docs.docker.com/docker-for-mac/osxfs-caching/))
-- The default configuration uses a host-volume in your home directory `.docker-composer` for composer caches
-
-
-CONFIGURATION
+CONFIGURAÇÃO
 -------------
 
-### Database
+### Configurando a Database
 
-Edit the file `config/db.php` with real data, for example:
+Altere o arquivo `config/db.php` com os seus dados de acesso (username, password), exemplo:
 
 ```php
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2basic',
+    'dsn' => 'mysql:host=localhost;dbname=agenda_med',
     'username' => 'root',
     'password' => '1234',
     'charset' => 'utf8',
 ];
 ```
 
-**NOTES:**
-- Yii won't create the database for you, this has to be done manually before you can access it.
-- Check and edit the other files in the `config/` directory to customize your application as required.
-- Refer to the README in the `tests` directory for information specific to basic application tests.
+### Criando a Database
 
+Execute o arquivo sql que está dentro da pasta `database/database.sql` para criar a estrutura do banco de dados.
